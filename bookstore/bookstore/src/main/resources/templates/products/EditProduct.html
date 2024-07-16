@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Best Store</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8-auto rounded border p-4 m-4">
+      <h2 class="text-center mb-5">Edit Book Details</h2>
+
+      <form method="post" enctype="multipart/form-data" th:object="${productDto}">
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">ID</label>
+          <div class="col-sm-8">
+            <label>
+              <input readonly class="form-control-plaintext" th:value="${product.id}">
+            </label>
+          </div>
+        </div>
+
+        <!-- book name-->
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">bookname</label>
+          <div class="col-sm-8">
+            <label>
+              <input class="form-control" th:field="${productDto.bookname}">
+            </label>
+            <p th:if="${#fields.hasErrors('bookname')}" th:errorclass="text-danger"
+               th:errors="${productDto.bookname}"></p>
+          </div>
+        </div>
+
+        <!-- seller name-->
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Seller Name</label>
+          <div class="col-sm-8">
+            <input class="form-control" th:field="${productDto.sellername}">
+            <p th:if="${#fields.hasErrors('sellername')}" th:errorclass="text-danger"
+               th:errors="${productDto.sellername}"></p>
+          </div>
+        </div>
+
+        <!-- seller Phno-->
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Seller Contact</label>
+          <div class="col-sm-8">
+            <input class="form-control" th:field="${productDto.sellerphno}">
+            <p th:if="${#fields.hasErrors('sellerphno')}" th:errorclass="text-danger"
+               th:errors="${productDto.sellerphno}"></p>
+          </div>
+        </div>
+
+        <!-- seller Email-->
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Seller Email</label>
+          <div class="col-sm-8">
+            <input class="form-control" th:field="${productDto.selleremail}">
+            <p th:if="${#fields.hasErrors('selleremail')}" th:errorclass="text-danger"
+               th:errors="${productDto.selleremail}"></p>
+          </div>
+        </div>
+
+        <!-- Price-->
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Price</label>
+          <div class="col-sm-8">
+            <input class="form-control" type="number" step="0.01" min="0" th:field="${productDto.price}">
+            <p th:if="${#fields.hasErrors('price')}" th:errorclass="text-danger"
+               th:errors="${productDto.price}"></p>
+          </div>
+        </div>
+
+        <!-- Description-->
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Description</label>
+          <div class="col-sm-8">
+            <textarea class="form-control" th:field="${productDto.description}"></textarea>
+            <p th:if="${#fields.hasErrors('description')}" th:errorclass="text-danger"
+               th:errors="${productDto.description}"></p>
+          </div>
+        </div>
+
+        <!-- Image shows old image-->
+<!--        <div class="row mb-3">           &lt;!&ndash; updating session to see curent image&ndash;&gt;-->
+<!--          <div class="offset-sm-4 col-sm-8">-->
+<!--&lt;!&ndash;            <img th:src="@{'/images/'+${product.imageFileName}}"&ndash;&gt;-->
+<!--&lt;!&ndash;                 alt="..." width="150">&ndash;&gt;-->
+<!--            <img th:src="@{'/images/' + ${product.imageFileName} + '?v=' + ${#dates.createNow().time}}" alt="Product Image" width="100">-->
+
+<!--          </div>-->
+<!--        </div>-->
+
+        <!-- Image display -->
+        <div class="row mb-3">
+          <div class="offset-sm-4 col-sm-8">
+            <img th:src="@{'/images/' + ${product.imageFileName}}" alt="..." width="100">
+          </div>
+        </div>
+
+
+        <!-- Image upload input -->
+<!--        <div class="row mb-3">-->
+<!--          <label class="col-sm-4 col-form-label">Image</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input class="form-control" type="file" th:field="${productDto.imageFile}">-->
+<!--            <p th:if="${#fields.hasErrors('imageFile')}" th:errorclass="text-danger" th:errors="${productDto.imageFile}"></p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Image</label>
+          <div class="col-sm-8">
+            <input class="form-control" type="file" th:field="${productDto.imageFile}">
+            <p th:if="${#fields.hasErrors('imageFile')}" th:errorclass="text-danger"
+               th:errors="${productDto.imageFile}"></p>
+          </div>
+        </div>
+
+
+
+        <!--        <div class="row mb-3">-->
+<!--          <label class="col-sm-4 col-form-label">Image</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input class="form-control" type="file" th:field="${productDto.imageFile}">-->
+<!--            <p th:if="${#fields.hasErrors('imageFile')}" th:errorclass="text-danger"-->
+<!--               th:errors="${productDto.imageFile}"></p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--        <div class="row mb-3">           &lt;!&ndash; updating session&ndash;&gt;-->
+<!--          <label class ="col-sm-4 col-form-label">Created At</label>-->
+<!--          <div class="col-sm-8">-->
+<!--            <input readonly class="form-control-plaintext" th:value="${product.createdAt}">-->
+<!--          </div>-->
+<!--        </div>-->
+
+
+        <!-- Submit and cancel-->
+        <div class="row">
+          <div class="offset-sm-4 col-sm-4 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          <div class="col-sm-4 d-grid">
+            <a class="btn btn-outline-primary" href="/products" role="button">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
