@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Store</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .full-height {
+        height: 150vh;
+    }
+    .btn-xs {
+        padding: .25rem .5rem;
+        font-size: .75rem;
+        line-height: 1.5;
+        border-radius: .2rem;
+    }
+  </style>
+</head>
+<body>
+<div class="container d-flex flex-column justify-content-center align-items-center full-height">
+  <h1 class="text-center my-4">Products</h1>
+  <div class="w-100 d-flex justify-content-start">
+    <a class="btn btn-primary btn-xs " href="/products/create" style="margin-right: 20px;">Create Product</a>
+    <a class="btn btn-primary btn-xs" href="/" style="margin-right: 100px;">Home</a>
+  </div>
+
+
+  <div class="w-100 d-flex justify-content-start">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>BookName</th>
+        <th>SellerName</th>
+        <th>SellerPhno</th>
+        <th>SellerEmail</th>
+        <th>Price</th>
+        <th>Image</th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.bookname}"></td>
+        <td th:text="${product.sellername}"></td>
+        <td th:text="${product.sellerphno}"></td>
+        <td th:text="${product.selleremail}"></td>
+        <td th:text="${product.price + ' Rs'}"></td>
+        <td>
+          <img th:src="@{'/images/' + ${product.imageFileName}}" alt="..." width="150">
+<!--          <img th:src="@{'/images/' + ${product.imageFileName}}" alt="..." width="100">-->
+        </td>
+<!--        <td th:text="${#dates.format(product.createdAt, 'yyyy-MM-dd')}"></td>-->
+        <td style="white-space:nowrap">
+          <a class="btn btn-primary btn-sm" th:href="@{/products/edit(id=${product.id})}">Edit</a>
+          <a class="btn btn-danger btn-sm" th:href="@{/products/delete(id=${product.id})}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
