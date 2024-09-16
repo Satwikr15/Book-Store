@@ -35,14 +35,14 @@ class LibraryApplicationTests {
 		//3.Entering into view list of website
 		driver.findElement(By.xpath("/html/body/div/div/div/a")).click();
 		//4.Entering into create product page and adding product details
-//		driver	.findElement(By.xpath("/html/body/div/div[1]/a[1]")).click();
-//		driver.findElement(By.name("bookname")).sendKeys("Do it today");
-//		driver.findElement(By.name("sellername")).sendKeys("Tom");
-//		driver.findElement(By.id("sellerphno")).sendKeys("9989877656");
-//		driver.findElement(By.id("selleremail")).sendKeys("Tom@gmail.com");
-//		driver.findElement(By.xpath("/html/body/div/div/div/form/div[5]/div/input")).sendKeys("20");
-//		driver.findElement(By.id("imageFile")).sendKeys("C:\\Users\\RamaKrishnaSaiSatwik\\Desktop\\bookstore\\Book-Store\\Library\\src\\main\\resources\\static\\images\\do it today.jpg");
-//		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		driver	.findElement(By.xpath("/html/body/div/div[1]/a[1]")).click();
+		driver.findElement(By.name("bookname")).sendKeys("Do it today");
+		driver.findElement(By.name("sellername")).sendKeys("Tom");
+		driver.findElement(By.id("sellerphno")).sendKeys("9989877656");
+		driver.findElement(By.id("selleremail")).sendKeys("Tom@gmail.com");
+		driver.findElement(By.xpath("/html/body/div/div/div/form/div[5]/div/input")).sendKeys("20");
+		driver.findElement(By.id("imageFile")).sendKeys("C:\\Users\\RamaKrishnaSaiSatwik\\Desktop\\bookstore\\Book-Store\\Library\\src\\main\\resources\\static\\images\\do it today.jpg");
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
 
 		//5.edit button
 		driver.findElement(By.xpath("/html/body/div/div[2]/table/tbody/tr[1]/td[8]/a[1]")).click();
