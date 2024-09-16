@@ -31,5 +31,52 @@ public class ProductDto {
     @Getter
     private MultipartFile imageFile; //
 
+    public @NotEmpty(message = "This Field is required") String getBookname() {
+        return bookname;
+    }
 
+    public void setBookname(@NotEmpty(message = "This Field is required") String bookname) {
+        this.bookname = bookname;
+    }
+
+    public @NotEmpty(message = "This Field is required") String getSellername() {
+        return sellername;
+    }
+
+    public void setSellername(@NotEmpty(message = "This Field is required") String sellername) {
+        this.sellername = sellername;
+    }
+
+    public @NotEmpty(message = "This Field is required") String getSellerphno() {
+        return sellerphno;
+    }
+
+    public void setSellerphno(@NotEmpty(message = "This Field is required") String sellerphno) {
+        this.sellerphno = sellerphno;
+    }
+
+    public @NotEmpty(message = "This Field is required") String getSelleremail() {
+        return selleremail;
+    }
+
+    public void setSelleremail(@NotEmpty(message = "This Field is required") String selleremail) {
+        this.selleremail = selleremail;
+    }
+
+    @Min(0)
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(@Min(0) double price) {
+        this.price = price;
+    }
+
+    public MultipartFile getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(MultipartFile imageFile) {
+        this.imageFile = imageFile;
+    }
 }

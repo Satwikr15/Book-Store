@@ -32,11 +32,9 @@
                         <li><a class="dropdown-item" href="/profile">Profile</a></li>
                         <li><a class="dropdown-item" href="/">Home</a></li>
                     </ul>
-<!--                    <a href="/register" class="btn btn-outline-primary me-2">Register</a>-->
+
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a href="/login" class="btn btn-primary">Login</a>-->
-<!--                </li>-->
+
             </ul>
             <form sec:authorize="isAuthenticated()" method="post" action="/logout">
                 <input type="hidden" th:name="${_csrf.parameterName}"
@@ -46,7 +44,7 @@
                 </button>
             </form>
 
-
+<!--before login-->
             <ul class="navbar-nav" sec:authorize="!isAuthenticated()">
                 <li class="nav-item" >
                     <a href="/register" class="btn btn-outline-primary me-2">Register</a>
